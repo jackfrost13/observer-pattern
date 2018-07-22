@@ -1,0 +1,4 @@
+class DisplayElement
+{
+  void display(){}
+}
