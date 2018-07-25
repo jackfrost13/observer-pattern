@@ -1,11 +1,13 @@
 import 'Subject.dart';
 import 'Observer.dart';
+import 'dart:io';
 class WeatherData implements Subject
 {
   double _temp,_humidity,_pressure;
   List<Observer> _observers;
   WeatherData() {
     _observers = new List();
+    //print(_observers);
   }
   @override
   void registerObservers(Observer o) {
@@ -22,11 +24,13 @@ class WeatherData implements Subject
   @override
   void notifyObservers()
   {
-    print(_observers);
     int i;
+    //print('Length : ${_observers.length}');
     for(i=0;i<_observers.length;i++)
       {
+        stdout.write('Observer ${i+1} wants to know the ');
         Observer o=  _observers[i];
+        //print(_observers);
         o.update(_temp,_humidity,_pressure);
       }
   }
@@ -36,5 +40,6 @@ class WeatherData implements Subject
     this._temp=temp;
     this._humidity=hum;
     this._pressure=pres;
+    measurementsChanged();
   }
 }
