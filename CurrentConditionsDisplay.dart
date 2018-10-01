@@ -18,3 +18,4 @@ class CurrentConditionsDisplay implements Observer, DisplayElement {
     display();
   }
 }
+heyya,,,,nishi here.
